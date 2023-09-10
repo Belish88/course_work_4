@@ -17,6 +17,11 @@ class File:
         with open(self.__data_file, "r", encoding="utf-8") as file:
             file_data = json.load(file)
         with open(self.__data_file, "w", encoding="utf-8") as file:
+            new_file_data = file_data.copy()
+            for vac_data in data:
+                for vac_file_data in new_file_data:
+                    if vac_data["id"] == vac_file_data["id"]:
+                        file_data.remove(vac_file_data)
             json.dump(file_data + data, file, indent=4, ensure_ascii=False)
 
     def select(self, query):
@@ -28,6 +33,6 @@ class File:
 
         result = []
         for vac in file_data:
-            if query in vac:
+            if query == vac["salary"]:
                 result.append(vac)
         return result
