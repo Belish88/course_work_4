@@ -18,7 +18,7 @@ class HH(ApiAbc):
         self.params = {
             'text': keyword,
             'page': 0,
-            'per_page': 2,
+            'per_page': 100,
             'search_field': 'name'
         }
 
@@ -32,7 +32,7 @@ class SJ(ApiAbc):
         self.params ={
             'keyword': keyword,
             'page': 0,
-            'count': 2,
+            'count': 100,
         }
 
     def get_request(self):

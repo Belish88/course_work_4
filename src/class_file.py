@@ -36,3 +36,8 @@ class File:
             if query == vac["salary"]:
                 result.append(vac)
         return result
+
+    def clean(self):
+        with open(self.__data_file, "w", encoding="utf-8") as file:
+            file_data = []
+            json.dump(file_data, file)
